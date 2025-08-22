@@ -1,17 +1,20 @@
 /* Basis typografie en layout */
 :root {
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #586069;
-  --link: #0b6efd;
+  --bg-start: #f9fafb;
+  --bg-end: #e0e7ff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #6366f1;
   --border: #e5e7eb;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0b0c10;
-    --text: #e6e6e6;
+    --bg-start: #0f172a;
+    --bg-end: #1e293b;
+    --text: #e5e7eb;
     --muted: #9aa3af;
-    --link: #67a8ff;
+    --accent: #818cf8;
     --border: #1f2937;
   }
 }
@@ -19,7 +22,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
   color: var(--text);
   max-width: 65ch;
   margin: 4rem auto;
@@ -27,14 +30,13 @@ body {
   line-height: 1.6;
 }
 
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 h1, h2, h3 { line-height: 1.2; margin: 1.5rem 0 .75rem; }
+h1 { font-size: 2.5rem; color: var(--accent); }
+h2 { font-size: 1.4rem; margin-top: 2rem; }
 time { color: var(--muted); font-size: .9rem; margin-left: .25rem; }
-
-ul { padding-left: 1.2rem; }
-li { margin: .5rem 0; }
 
 hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
@@ -45,34 +47,47 @@ code, pre {
   font-size: .95em;
 }
 pre {
-  background: #f6f8fa;
+  background: rgba(0, 0, 0, 0.04);
   padding: 1rem;
   overflow: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
 }
 @media (prefers-color-scheme: dark) {
-  pre { background: #0f1115; }
+  pre { background: rgba(255, 255, 255, 0.05); }
+}
+
+/* Header */
+.site-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.site-header p { color: var(--muted); }
+
+/* Postlijst met cards */
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+.post-list li {
+  margin: 1rem 0;
+  border-left: 4px solid var(--border);
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  transition: border-color .2s, transform .2s, background .2s;
+}
+.post-list li:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.8);
+}
+@media (prefers-color-scheme: dark) {
+  .post-list li { background: rgba(255, 255, 255, 0.05); }
+  .post-list li:hover { background: rgba(255, 255, 255, 0.1); }
 }
 
 /* Optioneel: terug-link bovenaan posts */
-nav a { text-decoration: none; }
+nav a { text-decoration: none; color: var(--accent); }
+nav a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
-/* Duidelijke accenten */
-:root { --accent: #0b6efd; }
-@media (prefers-color-scheme: dark) {
-  :root { --accent: #67a8ff; }
-}
-
-/* Koppen iets prominenter */
-h1 { font-size: 2rem; }
-h2 { font-size: 1.4rem; margin-top: 2rem; }
-
-/* Links met zichtbaar hover-effect */
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 2px; }
-
-/* Postlijst met accentlijn links */
-ul { list-style: none; padding-left: 0; }
-li { margin: .6rem 0; border-left: 3px solid var(--border); padding-left: .6rem; }
-li:hover { border-color: var(--accent); }
