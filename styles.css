@@ -58,4 +58,21 @@ pre {
 /* Optioneel: terug-link bovenaan posts */
 nav a { text-decoration: none; }
 
-body { background: #fffbe6; } /* test: lichtgeel */
+/* Duidelijke accenten */
+:root { --accent: #0b6efd; }
+@media (prefers-color-scheme: dark) {
+  :root { --accent: #67a8ff; }
+}
+
+/* Koppen iets prominenter */
+h1 { font-size: 2rem; }
+h2 { font-size: 1.4rem; margin-top: 2rem; }
+
+/* Links met zichtbaar hover-effect */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Postlijst met accentlijn links */
+ul { list-style: none; padding-left: 0; }
+li { margin: .6rem 0; border-left: 3px solid var(--border); padding-left: .6rem; }
+li:hover { border-color: var(--accent); }
