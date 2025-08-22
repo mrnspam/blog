@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if title %}{{ title }} — mrnspam{% else %}mrnspam — Blog{% endif %}</title>
+  <link rel="stylesheet" href="/blog/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1><a href="/blog/">mrnspam — Blog</a></h1>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+</html>
