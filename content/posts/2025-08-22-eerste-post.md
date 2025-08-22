@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: layouts/post.njk
 title: "Eerste post (Markdown)"
 date: 2025-08-22
 tags: ["post"]
