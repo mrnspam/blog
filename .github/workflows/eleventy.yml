@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install --no-audit --fund=false
+      - run: npx @11ty/eleventy --version
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
