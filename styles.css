@@ -57,3 +57,5 @@ pre {
 
 /* Optioneel: terug-link bovenaan posts */
 nav a { text-decoration: none; }
+
+body { background: #fffbe6; } /* test: lichtgeel */
