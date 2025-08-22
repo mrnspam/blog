@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: "Home"
+---
+
+<h2>Posts</h2>
+<ul class="post-list">
+{% for post in collections.post | reverse %}
+  <li>
+    <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+    {% if post.data.date %}
+      <time datetime="{{ post.data.date }}">{{ post.data.displayDate or post.data.date }}</time>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
